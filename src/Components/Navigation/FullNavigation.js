@@ -4,6 +4,7 @@ import { CollapseToggle } from "./CollapseToggle";
 import { Logo } from "./Logo";
 import { Nav } from "./Nav";
 import { SearchBox, SearchIcon } from "./Search";
+import { Login } from "../Login";
 
 export class FullNavigation extends React.Component {
   constructor(props) {
@@ -58,6 +59,7 @@ export class FullNavigation extends React.Component {
 
           <Collapse in={this.state.expanded} className="navbar-collapse">
             <div className="navbar-collapse">
+              <Login />
               <Nav
                 closeExpanded={this.closeExpanded}
                 expanded={this.state.expanded}

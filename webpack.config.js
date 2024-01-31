@@ -183,6 +183,20 @@ function webpackConfig(env = {}) {
       devMiddleware: {
         stats: "minimal",
       },
+      proxy: {
+        "/jr-api": {
+          secure: false,
+          changeOrigin: true,
+          pathRewrite: { "^/jr-api": "" },
+          target: "https://api.justrelate.com/",
+          onProxyReq(request) {
+            request.setHeader(
+              "X-JR-API-Location",
+              `http://localhost:8080/jr-api`
+            );
+          },
+        },
+      },
     },
   };
 }
